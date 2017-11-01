@@ -12,7 +12,7 @@ RUN yum install -y gcc
 # install golang
 RUN rm -rf /usr/local/go
 RUN mkdir -p /usr/local/go
-RUN yum install --installroot=/usr/local/go -y go
+RUN yum install --installroot=/usr/local/go --releasever=/ -y go
 
 # config GOROOT
 ENV GOROOT /usr/local/go
