@@ -30,4 +30,4 @@ COPY src /root/gopath/server
 
 # startup the server
 RUN cd /root/gopath/server
-RUN go run main.go
+RUN /usr/local/go/bin/go run main.go
