@@ -10,9 +10,7 @@ MAINTAINER pirlo san <pirlo_san@163.com>
 RUN yum install -y gcc
 
 # install golang
-RUN rm -rf /usr/local/go
-RUN mkdir -p /usr/local/go
-RUN yum install --installroot=/usr/local/go --releasever=/ -y go
+RUN yum install -y go
 
 # config GOROOT
 ENV GOROOT /usr/local/go
@@ -30,4 +28,4 @@ COPY src /root/gopath/server
 
 # startup the server
 RUN cd /root/gopath/server
-RUN /usr/local/go/bin/go run main.go
+RUN go run main.go
