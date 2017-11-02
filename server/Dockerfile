@@ -13,8 +13,8 @@ RUN yum install -y gcc
 RUN yum install -y go
 
 # config GOROOT
-ENV GOROOT /usr/local/go
-ENV PATH=$PATH:/usr/local/go/bin
+ENV GOROOT /usr/lib/golang
+ENV PATH=$PATH:/usr/lib/golang/bin
 
 # config GOPATH
 RUN mkdir -p /root/gopath
@@ -28,4 +28,5 @@ COPY src /root/gopath/server
 
 # startup the server
 RUN cd /root/gopath/server
-RUN go run main.go
+RUN go build -o server main.go
+RUN ./server
