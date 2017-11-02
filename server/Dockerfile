@@ -29,6 +29,6 @@ COPY src/* /root/gopath/src/server/
 
 # startup the server
 WORKDIR /root/gopath/src/server
-RUN ls -l
-RUN go build -o server main.go
-RUN ./server
+RUN go build -o server.bin main.go
+
+CMD /root/gopath/src/server/server.bin
