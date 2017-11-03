@@ -4,7 +4,7 @@ MODULES="server"
 
 function make_module {
 	PWD=`pwd`
-	cd ../$1
+	cd ./$1
 	chmod 777 make.sh
 	./make.sh
 	cd $PWD
