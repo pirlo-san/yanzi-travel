@@ -6,9 +6,7 @@ all:   server
 clean: server_clean
 
 server:
-	cd ../server
 	docker build -t server:latest ../server
-	cd $PWD
 
 server_clean:
 	docker kill $(docker ps -a -q)
