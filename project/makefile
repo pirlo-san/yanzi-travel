@@ -9,6 +9,6 @@ server:
 	docker build -t server:latest ../server
 
 server_clean:
-	docker kill $(docker ps -a -q)
-	docker rm   $(docker ps -a -q)
+	docker kill `docker ps -a -q`
+	docker rm   `docker ps -a -q`
 	

@@ -30,6 +30,7 @@ COPY src/* /root/gopath/src/server/
 # build the server
 WORKDIR /root/gopath/src/server
 RUN go install server
+RUN ls -l /root/gopath/bin/
 
 # startup the server
 CMD /root/gopath/src/server/server.bin
