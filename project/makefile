@@ -2,14 +2,12 @@
 .PHONY:  all clean server server_clean
 .IGNORE:     clean        server_clean
 
-PWD=`pwd`
-
 all:   server
 clean: server_clean
 
 server:
 	cd ../server
-	docker build -t server:latest .
+	docker build -t server:latest ../server
 	cd $PWD
 
 server_clean:
