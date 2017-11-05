@@ -33,4 +33,4 @@ RUN go install server
 RUN ls -l /root/gopath/bin/
 
 # startup the server
-CMD /root/gopath/src/server/server.bin
+CMD /root/gopath/bin/server
