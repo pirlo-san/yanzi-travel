@@ -1,5 +1,7 @@
 
-.PHONY: all clean server server_clean
+.PHONY:  all clean server server_clean
+.IGNORE:     clean        server_clean
+
 PWD=`pwd`
 
 all:   server
