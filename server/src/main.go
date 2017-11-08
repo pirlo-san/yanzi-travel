@@ -1,15 +1,11 @@
 package main
 
 import (
-	"fmt"
+	"home"
 	"net/http"
 )
 
 func main() {
-	http.HandleFunc("/", home)
+	http.HandleFunc("/", home.HomePage)
 	http.ListenAndServe(":80", nil)
-}
-
-func home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "welcome to yanzi travel")
 }
