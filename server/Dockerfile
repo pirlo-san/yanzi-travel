@@ -26,11 +26,11 @@ WORKDIR /root/gopath/
 
 # copy source files
 COPY src.tar.gz  /root/gopath/
-RUN tar -zxvf src.tar.gz
+RUN tar -zxvf src.tar.gz -C /root/gopath
 
 # build the server
 RUN go install home
-RUN go build -o /root/gopath/bin/server main.go
+RUN go build -o /root/gopath/bin/server /root/gopath/src/main.go
 RUN ls -l /root/gopath/bin/
 
 # startup the server

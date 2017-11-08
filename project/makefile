@@ -6,7 +6,7 @@ all:   server
 clean: server_clean
 
 server:
-	tar -zcvf src.tar.gz -C ../server src
+	tar -zcvf ../server/src.tar.gz -C ../server src
 	docker build -t server:latest ../server
 
 server_clean:
