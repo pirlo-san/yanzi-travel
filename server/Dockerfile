@@ -31,7 +31,6 @@ RUN tar -zxvf src.tar.gz -C /root/gopath
 # build the server
 RUN go install home
 RUN go build -o /root/gopath/bin/server /root/gopath/src/main.go
-RUN ls -l /root/gopath/bin/
 
 # startup the server
 CMD /root/gopath/bin/server
