@@ -25,6 +25,10 @@ ENV GOPATH /root/gopath
 
 # copy source files
 ADD src.tar.gz  /root/gopath/
+RUN find / -name src
+RUN pwd
+RUN ls -l `pwd`
+RUN ls -l /root/gopath/ /root/gopath/src
 
 # build the server
 RUN go install home
