@@ -28,7 +28,7 @@ RUN mkdir -p /root/gopath/src/server
 COPY src/* /root/gopath/src/server/
 
 # build the server
-WORKDIR /root/gopath/src/server
+# WORKDIR /root/gopath/src
 RUN go install server
 RUN ls -l /root/gopath/bin/
 
