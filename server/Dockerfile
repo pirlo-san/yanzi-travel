@@ -24,9 +24,7 @@ RUN mkdir -p /root/gopath/bin
 ENV GOPATH /root/gopath
 
 # copy source files
-COPY src/home/* /root/gopath/src/home/
-RUN ls -l /root/gopath/src/home
-RUN ls -l /root/gopath/src
+ADD src.tar.gz  /root/gopath/
 
 # build the server
 RUN go install home
