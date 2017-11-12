@@ -3,4 +3,12 @@
 set -e -u -x
 make clean
 make all
-docker run -d -p $1:$1 --name server server:latest
+
+if [ $# -gt 0 ]; then
+	PORT=$1
+else
+	PORT=80
+fi
+
+echo "start server container at port: $PORT"
+docker run -d -p $PORT:$PORT --name server server:latest /root/gopath/bin/server -p $PORT

@@ -22,13 +22,17 @@ RUN mkdir -p /root/gopath/src
 RUN mkdir -p /root/gopath/pkg
 RUN mkdir -p /root/gopath/bin
 ENV GOPATH /root/gopath
-WORKDIR /root/gopath/
+WORKDIR /root/gopath
 
 # copy source files
 COPY src.tar.gz  /root/gopath/
 RUN tar -zxvf src.tar.gz -C /root/gopath
 
+# copy config file
+COPY config.json /root/gopath/
+
 # build the server
+RUN go install util
 RUN go install home
 RUN go build -o /root/gopath/bin/server /root/gopath/src/main.go
 
