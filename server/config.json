@@ -1,15 +1,8 @@
 {
 "Description":"server configuration items, in JSON format",
 
-"Item":"server port",
-"port":"80",
-
-"Item":"test param1",
-"param1":"value1",
-
-"Item":"test param2",
-"param2":"value2",
-
+"Item":"run in debug mode or not",
+"Debug":true,
 
 "Item":"end"
 }

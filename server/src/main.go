@@ -4,40 +4,40 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"home"
+	"idebug"
+	"ihome"
 	"io/ioutil"
 	"log"
 	"net/http"
 )
 
 type config struct {
-	port   string
-	param1 string
-	param2 string
+	Debug bool
 }
-
-var defaultConfig config = config{port: "80", param1: "value1", param2: "value2"}
 
 func main() {
 	// load config file
 	configItems, err := loadConfig()
 	if err != nil {
 		log.Printf("loadConfig error: %v\n", err)
-		configItems = defaultConfig
 	}
 
 	// parse args
-	configItems, err = parseArgs()
+	port, err := parsePort()
 	if err != nil {
-		log.Printf("parseArgs error: %v\n", err)
-		configItems = defaultConfig
+		log.Printf("parsePort error: %v, use default port 80\n", err)
+		port = "80"
 	}
 
+	log.Println(configItems)
+	// set debug mode
+	idebug.SetDebugMode(configItems.Debug)
+
 	// register routers
-	http.HandleFunc("/", home.HomePage)
+	http.HandleFunc("/", ihome.HomePage)
 
 	// listen and serve
-	addr := fmt.Sprintf(":%s", configItems.port)
+	addr := fmt.Sprintf(":%s", port)
 	http.ListenAndServe(addr, nil)
 	if err != nil {
 		log.Fatal("http.ListenAndServe error: %v", err)
@@ -55,10 +55,10 @@ func loadConfig() (configItems config, err error) {
 	return
 }
 
-func parseArgs() (configItems config, err error) {
+func parsePort() (port string, err error) {
 
 	err = nil
-	flag.StringVar(&configItems.port, "p", "80", "server port")
+	flag.StringVar(&port, "p", "80", "server port")
 	flag.Parse()
 	return
 }

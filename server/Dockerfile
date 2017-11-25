@@ -32,8 +32,8 @@ RUN tar -zxvf src.tar.gz -C /root/gopath
 COPY config.json /root/gopath/
 
 # build the server
-RUN go install util
-RUN go install home
+RUN go install idebug
+RUN go install ihome
 RUN go build -o /root/gopath/bin/server /root/gopath/src/main.go
 
 # startup the server
