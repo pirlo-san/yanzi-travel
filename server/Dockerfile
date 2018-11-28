@@ -1,4 +1,4 @@
-# This dockerfile build the golang development environment,
+# This dockerfile builds the golang development environment,
 # and then start our http server.
 
 FROM centos:7
