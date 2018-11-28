@@ -1,2 +1,2 @@
 # yanzi-travel
-choose your best travel destination.
+Choose your best travel destination.
